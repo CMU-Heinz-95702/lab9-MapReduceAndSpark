@@ -1,0 +1,28 @@
+name: cmu-95702-hadoop
+
+services:
+  hadoop:
+    image: ${HADOOP_IMAGE:-ghcr.io/cmu-heinz-95702/mapreduce-docker-image:stable}
+    hostname: hadoop
+    init: true
+    stdin_open: true
+    tty: true
+    ports:
+      - "127.0.0.1:9870:9870"
+      - "127.0.0.1:8088:8088"
+      - "127.0.0.1:19888:19888"
+    volumes:
+      - ./datasets:/home/public:ro
+      - ./checksums.sha256:/opt/course/checksums.sha256:ro
+      - ./workspace:/home/student/Project5:rw
+      - hadoop-data:/data/hadoop
+    healthcheck:
+      test: ["CMD", "/usr/local/bin/hadoop-healthcheck"]
+      interval: 10s
+      timeout: 8s
+      retries: 18
+      start_period: 45s
+    stop_grace_period: 30s
+
+volumes:
+  hadoop-data:
