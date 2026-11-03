@@ -405,3 +405,5 @@ Select the project node. From the Run menu, select Edit Configurations.
 14. If you get a "file already exists exception", be sure to delete the output directory
 named "CountData" in your working directory. Spark does this so that a large output file is
 not accidentally erased.
+
+### :checkered_flag: This is the .75 point checkpoint. Using the web site, show your TA that your Spark job on IntelliJ ran to completion.
