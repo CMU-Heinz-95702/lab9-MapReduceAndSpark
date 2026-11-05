@@ -34,7 +34,7 @@ There are three distinct storage locations used in this lab:
 - Example: workspace/
 
     - Located on your computer outside Docker.
-    - Appears inside the container as /home/student/Project5.
+    - Appears inside the container as /home/student/lab9.
     - Files remain available even if the container is stopped, removed, or recreated.
 
 
@@ -52,7 +52,7 @@ There are three distinct storage locations used in this lab:
     - Exists inside the Docker container.
     - Used for temporary files, compilation, testing, and local input/output files.
     - Files remain available if the container is stopped and restarted.
-    - Files are lost if the container is removed and recreated (for example, by running docker compose down followed by docker compose up).
+    - Files not bind mounted directories (See `Host Filesystem`) are lost if the container is removed and recreated (for example, by running docker compose down followed by docker compose up).
     - Note: /home/public is visible inside the container but differs from most other
   directories under /home. Its contents come from the host machine's datasets/
   directory and are available inside the container as read-only files.
@@ -117,7 +117,7 @@ docker compose exec hadoop bash
 
 ```
 
-The shell opens in `/home/student/Project5`. Files in that directory are the
+The shell opens in `/home/student/lab9`. Files in that directory are the
 same files as the host filesystem's `workspace/` directory, so they can be edited
 with an IDE on the host or with `nano` inside the container.
 

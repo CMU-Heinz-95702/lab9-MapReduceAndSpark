@@ -7,6 +7,7 @@ services:
     init: true
     stdin_open: true
     tty: true
+    working_dir: /home/student/lab9
     ports:
       - "127.0.0.1:9870:9870"
       - "127.0.0.1:8088:8088"
@@ -14,10 +15,10 @@ services:
     volumes:
       - ./datasets:/home/public:ro
       - ./checksums.sha256:/opt/course/checksums.sha256:ro
-      - ./workspace:/home/student/Project5:rw
+      - ./workspace:/home/student/lab9:rw
       - hadoop-data:/data/hadoop
     healthcheck:
-      test: ["CMD", "/usr/local/bin/hadoop-healthcheck"]
+      test: [ "CMD", "/usr/local/bin/hadoop-healthcheck" ]
       interval: 10s
       timeout: 8s
       retries: 18
