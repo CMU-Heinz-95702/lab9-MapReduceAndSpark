@@ -177,7 +177,8 @@ ls /home/public
 
 ```
 
-The output should include the following datasets. A sample MapReduce implementation, WordCount.java, is also provided.
+The output should include the following datasets. Some sample MapReduce implementations
+are also provided: WordCount.java, MaxTemperature.java, MaxTemperatureMapper.java, and MaxTemperatureReducer.java.
 
 ```text
 
@@ -186,6 +187,9 @@ combinedYears.txt
 P1V.txt
 CrimeLatLonXYTabs.txt
 WordCount.java
+MaxTemperature.java
+MaxTemperatureMapper.java
+MaxTemperatureReducer.java
 
 ```
 
