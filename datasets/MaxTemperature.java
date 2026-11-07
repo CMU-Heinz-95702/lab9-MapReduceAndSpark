@@ -1,4 +1,4 @@
-package edu.cmu.andrew.mm6;
+package edu.cmu.project5.task3;
 
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.conf.Configured;
