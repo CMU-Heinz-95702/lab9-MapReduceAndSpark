@@ -2,7 +2,9 @@
 
 ## Lab 9: HDFS, MapReduce, and Spark
 
-### Part 1 HDFS and MapReduce
+This is a two-part lab exercise. Part 1 uses Docker to prepare an HDFS environment for Project 5. Part 2 provides the initial setup for running Spark applications in IntelliJ, again for Project 5.
+
+### Part 1 Overview of the Hadoop environment
 
 Part 1 runs in a local Docker container that provides Hadoop 3.5.0 in single-node
 pseudo-distributed mode. The container runs the same core Hadoop services found
@@ -65,7 +67,7 @@ There are three distinct storage locations used in this lab:
     - Managed by Hadoop.
     - MapReduce jobs read input from and write output to HDFS.
     - HDFS data is stored in a Docker volume separate from the container filesystem.
-    - HDFS data persists across docker compose stop, docker compose start, and docker compose down.
+    - HDFS data persists across docker compose stop, docker compose start, and docker compose down because it is stored in a Docker volume. HDFS data is removed only when the volume itself is deleted, for example by running docker compose down -v.
     - To delete all HDFS data and start over, run: docker compose down -v
     - Note: Students will frequently copy files from `/home/public` or `/home/student` into HDFS using `hdfs dfs` commands before running MapReduce jobs.
 
@@ -123,12 +125,11 @@ with an IDE on the host or with `nano` inside the container.
 
 ### Helpful Linux commands
 
-Note that the tab key is useful for showing your command history. After using
-the tab key, you may hit return to execute commands that you previously ran.
+Note that the Tab key is useful for command and file-name completion. Previously entered commands can be recalled using the up-arrow key or by using the history command.
 
 Note too that there is a Unix help sheet on Canvas. It is named
 "UNIX Commands Quick List". Note too that we have provided a short
-linux tutorial. See Canvas and look for LinuxTutorial.mp4.
+Linux tutorial. See Canvas and look for LinuxTutorial.mp4.
 
 
 ### Useful commands from the host machine:
@@ -176,7 +177,7 @@ ls /home/public
 
 ```
 
-The output should include:
+The output should include the following datasets. A sample MapReduce implementation, WordCount.java, is also provided.
 
 ```text
 
@@ -319,7 +320,7 @@ To stop and remove the container:
 ```
 Note: Do not use docker compose down -v as a general troubleshooting step. The -v option permanently deletes all data stored in HDFS. Use this command only when you intentionally want to start with a fresh Hadoop environment.
 
-### Part 2. Apache Spark using IntelliJ
+### Part 2. Apache Spark Using IntelliJ
 
 For the Spark part of this lab, we are using JDK 8 or 1.8. More recent
 versions of Java do not work as expected.
@@ -380,7 +381,7 @@ public class WordCounter {
 }
 ```
 
-Note: If you get an error on the import of java.utils.Array, select File/Invalidate Caches, select all of the options, and then select "Invalidate and Restart".
+Note: If you get an error on the import of java.utils.Arrays, select File/Invalidate Caches, select all of the options, and then select "Invalidate and Restart".
 
 8. We need a file to process. Right click the project node and select "New File".
 Give the file the name hadoop-lab.txt.
