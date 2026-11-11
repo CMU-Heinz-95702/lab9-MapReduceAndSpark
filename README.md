@@ -411,4 +411,4 @@ Select the project node. From the Run menu, select Edit Configurations.
 named "CountData" in your working directory. Spark does this so that a large output file is
 not accidentally erased.
 
-### :checkered_flag: This is the .75 point checkpoint. Using the web site, show your TA that your Spark job on IntelliJ ran to completion.
+### :checkered_flag: This is the .75 point checkpoint. Show your TA that your Spark job on IntelliJ ran to completion.
